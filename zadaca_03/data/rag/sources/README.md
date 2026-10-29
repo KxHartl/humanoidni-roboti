@@ -5,3 +5,5 @@ Nakon toga pokreni ingestion:
 
 Za pretragu:
   python .ai/rag/query.py "Tvoje pitanje"
+
+PDF izvori (predavanja, tekst zadatka, UR datasheetovi) nisu u repozitoriju. Dolaze s kolegija i sa stranica Universal Robotsa.

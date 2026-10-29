@@ -45,6 +45,8 @@ for_zadaca_03/
 
 ```
 
+Skupovi podataka nisu u ovoj mapi nego u `zadaca_02/datasets/`, a materijali s predavanja nisu u repozitoriju (dolaze s kolegija).
+
 ---
 
 ## 🚀 Brzi Start

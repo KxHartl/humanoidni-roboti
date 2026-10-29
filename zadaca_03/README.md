@@ -14,11 +14,12 @@ Repozitorij za interaktivnu Pick-and-Place CLI aplikaciju za branje voća s UR5e
 
 | Putanja | Svrha |
 |---|---|
-| `src/run_pipeline.py` | Glavni ulaz u pipeline |
-| `src/01_camera_calibration/` | Skripte za kalibraciju i pomoćne provjere |
-| `src/02_fruit_pick_and_place/` | Glavna logika pipelinea |
+| `src/main.py` | Glavni ulaz u pipeline |
+| `src/adapters/`, `src/core/`, `src/usecases/` | Glavna logika pipelinea |
+| `scripts/` | Skripte za kalibraciju, testiranje i treniranje YOLO modela |
 | `data/camera_calibration/` | Kalibracijske matrice i transformacije |
-| `data/models/` | YOLO modeli |
+| `data/datasets/` | Roboflow COCO skup podataka. `yolo_seg_dataset/` nije u repozitoriju, generira ga `scripts/yolo_training/prepare_dataset.py` |
+| `data/models/` | YOLO model (`custom_fruit_seg.pt`), nije u repozitoriju |
 | `data/raw/` | Snimljeni i generirani podaci |
 
 ## Pokretanje
@@ -27,19 +28,19 @@ Aktiviraj virtualno okruženje i pokreni glavni pipeline:
 
 ```powershell
 .venv\Scripts\activate
-python -X utf8 src\run_pipeline.py
+python -X utf8 src\main.py
 ```
 
 Za offline rad bez robota i kamere:
 
 ```powershell
-python -X utf8 src\run_pipeline.py --offline
+python -X utf8 src\main.py --mock
 ```
 
 Za rad s već snimljenim podacima:
 
 ```powershell
-python -X utf8 src\run_pipeline.py --existing-captures data\raw\outputs\run_XXXXX\captures
+python -X utf8 src\main.py --offline --existing-captures data\raw\outputs\run_XXXXX\captures
 ```
 
 ## Ovisnosti
@@ -49,8 +50,8 @@ Osnovne Python ovisnosti su navedene u [requirements.txt](requirements.txt).
 ## Dokumentacija
 
 - [STATE.md](STATE.md) - trenutno stanje projekta
-- [tasks.md](tasks.md) - sažetak zadataka i što je završeno
-- [howtouse.md](howtouse.md) - detaljnije upute za korištenje
+- [task.md](task.md) - sažetak zadataka
+- [TO_SHOW.md](TO_SHOW.md) - što se predaje
 
 ## Napomena
 

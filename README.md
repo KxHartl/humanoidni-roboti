@@ -2,7 +2,7 @@
 
 **Humanoidni roboti i biomimetički sustavi**
 
-> Course exercises – Humanoid Robots and Biomimetic Systems (Humanoidni roboti i biomimetički sustavi), FSB, University of Zagreb, 2026
+> Course exercises for Humanoid Robots and Biomimetic Systems (Humanoidni roboti i biomimetički sustavi), MSc, 4th semester, 2026, FSB, University of Zagreb
 
 ![C++](https://img.shields.io/badge/C%2B%2B-OpenCV%20%C2%B7%20PCL-00599C)
 ![Python](https://img.shields.io/badge/Python-3776AB)
@@ -22,12 +22,12 @@ cloud processing, trajectory generation and joint and task-space control in simu
 | Folder | Contents |
 |---|---|
 | `zadaca_01/` | Assignment 1: a C++ program that captures RGB images and organised point clouds from an Intel RealSense camera, configured from a RealSense Viewer JSON file |
-| `Vision_systems/` | the same capture program in its later form, with the captured image and point cloud pairs of single fruit (apple, lemon, tomato) and of fruit groups |
+| `Vision_systems/` | the same capture program in its later form, with the captured image and point cloud pairs of single fruit (apple, lemon), of fruit groups and of a box. The tomato set is kept once, as `zadaca_02/datasets/humanoidna_voce_crvena_jabuka_raw/` |
 | `object_detection_and_pose_estimation/` | exercise: an interactive C++ pipeline (OpenCV and PCL) that segments an RGB image by colour, applies the same mask to the point cloud and fits a sphere, a cylinder or oriented bounding boxes to estimate the object's centre |
 | `camera_calibration/` | exercise in six tasks: intrinsic parameters, collecting image and robot pose pairs, ChArUco board pose, hand-eye calibration, locating a clicked object in the robot base frame, registering a point cloud in the robot base |
 | `vjezba_trajektorija/` | exercise: first-order and fifth-order polynomial trajectories in joint space, a task-space trajectory with velocity and acceleration limits, and sending the trajectories to the robot in simulation |
-| `zadaca_02/` | Assignment 2: instance segmentation of 3D-printed fruit with a YOLOv8 nano model trained on a dataset the course's students annotated together, and pose estimation from the RGB-D data, with the report |
-| `object_detection/` | working scripts for detection and 3D localisation used on the way from assignment 2 to assignment 3 |
+| `zadaca_02/` | Assignment 2: instance segmentation of 3D-printed fruit with a YOLOv8 nano model trained on a dataset the course's students annotated together, and pose estimation from the RGB-D data, with the report. The datasets are in `zadaca_02/datasets/` |
+| `object_detection/` | working scripts for detection and 3D localisation used on the way from assignment 2 to assignment 3. They read the datasets in `zadaca_02/datasets/` |
 | `control/` | exercise in MuJoCo: P, PD and PID joint control of a 3-DOF arm with a step and a sine reference and with a disturbance, then task-space and impedance control of a Franka Panda, with the report |
 | `pick_and_place/` | working scripts for the pick-and-place trajectory (HOME, APPROACH, PICK, APPROACH_PLACE, PLACE) |
 | `zadaca_03/` | Assignment 3: the full pick-and-place pipeline, described below |
@@ -53,6 +53,16 @@ python src/main.py --help
 `src/main.py` has a `--mock` option that runs without the robot and the camera, and `--offline`
 with `--existing-captures <folder>` that runs the perception part on captures saved earlier, such
 as those in `data/raw/outputs/`.
+
+## Not in the repository
+
+- Course material from the teachers and publishers: lecture slides, assignment sheets, book
+  excerpts and the Universal Robots datasheets. It comes from the course pages and from Universal
+  Robots. Copy it back into `lectures/`, `datasheets/`, `control/docs/references/` or
+  `zadaca_03/data/rag/sources/` to use it locally.
+- `zadaca_03/data/datasets/yolo_seg_dataset/`, which `zadaca_03/scripts/yolo_training/prepare_dataset.py`
+  builds from the Roboflow export next to it.
+- Trained model weights (`*.pt`), Python virtual environments and build output.
 
 ## Reports
 
